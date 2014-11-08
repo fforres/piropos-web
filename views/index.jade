@@ -1,0 +1,42 @@
+extends layout
+
+block content
+    .container
+      #piropos
+        .row.row-offcanvas.row-offcanvas-right
+          #mainbar.col-xs-12.col-sm-9
+            .info
+              .header
+                .new
+                  a.btn.btn-default
+                    i.fa.fa-fw.fa-plus-square-o 
+                    | Crea tu piropo
+
+
+              .body
+            .loader
+              h1 Cargando ... 
+              i.fa.fa-fw.fa-spinner.fa-spin 
+            .error
+              h1 Lo siento! 
+              i.fa.fa-fw.fa-meh-o
+            
+          #sidebar.col-xs-6.col-sm-3.sidebar-offcanvas(role='navigation')
+            .list-group
+              a.list-group-item.active(href='#') Link
+              a.list-group-item(href='#') Link
+              a.list-group-item(href='#') Link
+              a.list-group-item(href='#') Link
+              a.list-group-item(href='#') Link
+              a.list-group-item(href='#') Link
+              a.list-group-item(href='#') Link
+              a.list-group-item(href='#') Link
+              a.list-group-item(href='#') Link
+              a.list-group-item(href='#') Link
+          //
+            /.sidebar-offcanvas
+        //
+          /row
+        hr
+        footer
+          p © Company 2014

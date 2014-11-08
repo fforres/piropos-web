@@ -1,0 +1,28 @@
+#piropos .loader { text-align: center; font-size: 12em; height: 690px }
+#piropos .error { text-align: center; font-size: 12em; height: 690px }
+
+#piropos .loader { display: none; transition: all 2s linear;}
+#piropos .info { display: none; transition: all 2s linear;}
+#piropos .error { display: none; transition: all 2s linear;}
+
+#piropos.loading .loader { display: block; opacity: 1 }
+#piropos.loading .info { display: none; opacity: 0 }
+#piropos.loading .error { display: none; opacity: 0 }
+
+#piropos.loaded .loader { display: none; opacity: 0 }
+#piropos.loaded .info { display: block; opacity: 1 }
+#piropos.loaded .error { display: none; opacity: 0 }
+
+#piropos.error .loader { display: none; opacity: 0  }
+#piropos.error .info { display: none; opacity: 0  }
+#piropos.error .error { display: block; opacity: 1 }
+
+
+
+.piropo {margin-top: 20px; margin-bottom: 20px;}
+.piropo .puntaje {text-align: center; }
+.piropo .puntaje i{font-size: 3em;}
+.piropo .puntaje.loading .loader {display: block; opacity: 1}
+.piropo .puntaje.loading .info {display: none; opacity: 0}
+.piropo .puntaje.loaded .loader {display: block; opacity: 1}
+.piropo .puntaje.loaded .info {display: none; opacity: 0}
