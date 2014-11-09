@@ -1,8 +1,8 @@
 var $ = jQuery;
 $(document).ready(function() {
+	var API = "http://ufkkf5b6fa87.fforres.koding.io:3007/api"
 	$('.info .header .new a').on("click", function(e) {
 		e.preventDefault();
-
 	});
 	getPiropos();
 
@@ -14,7 +14,7 @@ $(document).ready(function() {
 		};
 		var options = $.extend(defaults, opts);
 		var request = $.ajax({
-			url: 'http://localhost:3007/api/piropos',
+			url: API+'/piropos',
 			type: 'GET',
 			data: options
 		});
@@ -43,7 +43,7 @@ $(document).ready(function() {
 			html += piropo.texto;
 			html += '</h2>';
 			html += '<h4 class="pull-right">';
-			html += "<span>-</span>" + piropo.creador;
+			html += "<span>-</span>" + piropo.usuario;
 			html += '</h4>';
 			html += '</div>';
 			html += '<div class="puntaje loading col-xs-3 col-sm-2">';
@@ -60,7 +60,7 @@ $(document).ready(function() {
 		var html = '';
 		html += '<div class="aFavor">';
 		html += '<i class="fa fa-fw fa-caret-up"></i>';
-		html += '</div>';
+		html += '</div>'; 
 		html += '<div class="votos">';
 		html += piropo.votoAFavor;
 		html += '</div>';
@@ -81,7 +81,7 @@ $(document).ready(function() {
 		var defaults = {};
 		var options = $.extend(defaults, opts);
 		var request = $.ajax({
-			url: 'http://localhost:3007/api/piropos/' + piropo.id + '/votoAFavor',
+			url: API+'/piropos/' + piropo.id + '/votoAFavor',
 			type: 'GET',
 			data: options
 		});
@@ -99,7 +99,7 @@ $(document).ready(function() {
 		var defaults = {};
 		var options = $.extend(defaults, opts);
 		var request = $.ajax({
-			url: 'http://localhost:3007/api/piropos/' + piropo.id + '/votoEnContra',
+			url: API+'/piropos/' + piropo.id + '/votoEnContra',
 			type: 'GET',
 			data: options
 		});
