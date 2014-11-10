@@ -1,3 +1,14 @@
+
+.vertical-align {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+#piropos .new a i{ font-size:45px;}
+
 #piropos .loader { text-align: center; font-size: 12em; height: 690px }
 #piropos .error { text-align: center; font-size: 12em; height: 690px }
 
@@ -18,11 +29,17 @@
 #piropos.error .error { display: block; opacity: 1 }
 
 
+#piropos .piropo {margin-top: 20px; margin-bottom: 20px;}
+#piropos .piropo .titulo {text-align: left; }
+#piropos .piropo .titulo  .texto{font-size: 3em; }
+#piropos .piropo .titulo  .firma{font-size: 2em; }
+#piropos .piropo .titulo  .firma span{margin-right: 15px; }
 
-.piropo {margin-top: 20px; margin-bottom: 20px;}
-.piropo .puntaje {text-align: center; }
-.piropo .puntaje i{font-size: 3em;}
-.piropo .puntaje.loading .loader {display: block; opacity: 1}
-.piropo .puntaje.loading .info {display: none; opacity: 0}
-.piropo .puntaje.loaded .loader {display: block; opacity: 1}
-.piropo .puntaje.loaded .info {display: none; opacity: 0}
+#piropos .piropo .puntaje {text-align: center; }
+#piropos .piropo .puntaje i{font-size: 2.5em;}
+#piropos .piropo .puntaje {font-size: 2em;}
+
+#piropos .piropo .puntaje.loading .loader {display: block; opacity: 1}
+#piropos .piropo .puntaje.loading .info {display: none; opacity: 0}
+#piropos .piropo .puntaje.loaded .loader {display: block; opacity: 1}
+#piropos .piropo .puntaje.loaded .info {display: none; opacity: 0}

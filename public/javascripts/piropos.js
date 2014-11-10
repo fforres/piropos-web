@@ -31,22 +31,22 @@ $(document).ready(function() {
 	}
 
 	function paintPiropos(piropos) {
-		$('#piropos')
+		$('#piropos') 
 			.addClass('loaded')
 			.removeClass('loading')
 			.removeClass('error');
 		$.each(piropos, function(k, piropo) {
 			var html = '';
-			html += '<div class="piropo row" id="' + piropo.id + '">';
-			html += '<div class="titulo col-xs-9 col-sm-10">';
-			html += '<h2>';
+			html += '<div class="piropo row row-xs-height" id="' + piropo.id + '">';
+			html += '<div class="titulo col-xs-9 col-sm-10 col-xs-height">';
+			html += '<div class="texto">';
 			html += piropo.texto;
-			html += '</h2>';
-			html += '<h4 class="pull-right">';
-			html += "<span>-</span>" + piropo.usuario;
-			html += '</h4>';
 			html += '</div>';
-			html += '<div class="puntaje loading col-xs-3 col-sm-2">';
+			html += '<div class="pull-right firma">';
+			html += "<span>~</span>" + piropo.usuario;
+			html += '</div>';
+			html += '</div>';
+			html += '<div class="puntaje loading col-xs-3 col-sm-2 col-xs-height col-middle">';
 			html += '<i class="fa fa-fw fa-spinner fa-spin"></i>';
 			html += '</div>';
 			html += '</div>';
@@ -81,7 +81,7 @@ $(document).ready(function() {
 		var defaults = {};
 		var options = $.extend(defaults, opts);
 		var request = $.ajax({
-			url: API+'/piropos/' + piropo.id + '/votoAFavor',
+			url: API+'/piropos/' + piropo.id + '/addVotoAFavor',
 			type: 'GET',
 			data: options
 		});
@@ -99,7 +99,7 @@ $(document).ready(function() {
 		var defaults = {};
 		var options = $.extend(defaults, opts);
 		var request = $.ajax({
-			url: API+'/piropos/' + piropo.id + '/votoEnContra',
+			url: API+'/piropos/' + piropo.id + '/addVotoEnContra',
 			type: 'GET',
 			data: options
 		});
@@ -114,7 +114,7 @@ $(document).ready(function() {
 	}
 
 	function updateVotoInterfaz(voto, $cont, opts) {
-		$cont.find('.votos').html(voto.msg.favor);
+		$cont.find('.votos').html(voto.msg.votoAFavor);
 	}
 
 

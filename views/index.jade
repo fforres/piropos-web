@@ -4,16 +4,15 @@ block content
     .container
       #piropos
         .row.row-offcanvas.row-offcanvas-right
-          #mainbar.col-xs-12.col-sm-9
+          #mainbar.col-xs-12.col-sm-12.col-md-12.col-lg-9
             .info
               .header
                 .new
-                  a.btn.btn-default
+                  a(href="#crearPiropo")
                     i.fa.fa-fw.fa-plus-square-o 
-                    | Crea tu piropo
 
 
-              .body
+              .body.container-xs-height
             .loader
               h1 Cargando ... 
               i.fa.fa-fw.fa-spinner.fa-spin 
@@ -21,7 +20,7 @@ block content
               h1 Lo siento! 
               i.fa.fa-fw.fa-meh-o
             
-          #sidebar.col-xs-6.col-sm-3.sidebar-offcanvas(role='navigation')
+          #sidebar.col-xs-6.col-sm-6.col-md-6.col-lg-3.sidebar-offcanvas(role='navigation')
             .list-group
               a.list-group-item.active(href='#') Link
               a.list-group-item(href='#') Link
