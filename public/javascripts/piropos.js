@@ -1,18 +1,82 @@
 var $ = jQuery;
 $(document).ready(function() {
 	var API = "http://ufkkf5b6fa87.fforres.koding.io:3007/api"
-	$('.info .header .new a').on("click", function(e) {
+	
+	/* INTERFAZ Y VALIDACION DE CREACION PIROPO*/
+	$('.info .header .new a.activate').on("click", function(e) {
 		e.preventDefault();
+		$(".aNewOne").toggle(230,function(){
+			$(this).find("input").focus()
+		})
 	});
-	getPiropos();
 
+	
+	$(".aNewOne .validable").on("keyup",function(){
+		var $cont = $(this).parent()
+		if($(this).val().length >= 3){
+			$cont.find("span").html("");
+			$cont.addClass("success")
+			$cont.find("span").html("<i class='fa fa-fw fa-check-circle form-control-feedback'></i>")
+		}else{
+			$cont.find("span").html("");
+			$cont.removeClass("success")
+			$cont.find("span").html("<i class='fa fa-fw fa-close form-control-feedback'></i>")
+		}
+		activateSaveButton($cont.parent());
+	});
+	
+	
+	function activateSaveButton($cont){
+		if($cont.parent().find(".success").length ==2){
+			$(".info .header .new a.save").show(200)
+		}else{
+			$(".info .header .new a.save").hide(200)
+		}
+	}
+	
+	
+	
+	/*  CREACION */
+	$('.info .header .new a.save').on("click", function(e) {
+		var nombre = $(".header .aNewOne .entername").val();
+		var piropo = $(".header .aNewOne .enterpiropo").val();
+		if(nombre && piropo && nombre.length >0 && piropo.length >0)
+		{
+			piropo = piropo.replace(/\n/g, "<br />");
+			var ob = {
+				usuario: 	nombre,
+				texto:		piropo 
+			}
+			var request = $.ajax({
+				url: API+'/piropos/',
+				type: 'POST',
+				data: ob
+			});
+			//exito
+			request.done(function(data) {
+				console.log(data)
+			});
+			//fallo
+			request.error(function(data) {});
+			//siempre
+			request.always(function(data) {});
+		}else{
+			
+		}
+	});
+	
+	/* OBTENCION PIROPOS */
+	
+	getPiropos();
 	function getPiropos(opts) {
 		loadingInterface();
 		var defaults = {
-			include: 'voto',
-			limit: 10
+			filter:{
+				limit: 10,
+				order: ["votoTotal DESC"]
+			}
 		};
-		var options = $.extend(defaults, opts);
+		var options = { filter: $.extend(defaults.filter, opts) }
 		var request = $.ajax({
 			url: API+'/piropos',
 			type: 'GET',
@@ -37,38 +101,39 @@ $(document).ready(function() {
 			.removeClass('error');
 		$.each(piropos, function(k, piropo) {
 			var html = '';
-			html += '<div class="piropo row row-xs-height" id="' + piropo.id + '">';
-			html += '<div class="titulo col-xs-9 col-sm-10 col-xs-height">';
-			html += '<div class="texto">';
-			html += piropo.texto;
-			html += '</div>';
-			html += '<div class="pull-right firma">';
-			html += "<span>~</span>" + piropo.usuario;
-			html += '</div>';
-			html += '</div>';
-			html += '<div class="puntaje loading col-xs-3 col-sm-2 col-xs-height col-middle">';
-			html += '<i class="fa fa-fw fa-spinner fa-spin"></i>';
-			html += '</div>';
-			html += '</div>';
+			html += '<blockquote class="piropo row" id="' + piropo.id + '">';
+				html += '<div class="col-xs-12 row-xs-height">'
+					html += '<div class="titulo col-xs-9 col-sm-10 col-lg-10 col-xs-height">';
+						html += '<div class="texto">';
+							html += piropo.texto;
+						html += '</div>';
+						html += '<div class="pull-right firma">';
+							html += "<span>~</span>" + piropo.usuario;
+						html += '</div>';
+					html += '</div>';
+					html += '<div class="puntaje loading col-xs-3 col-sm-2 col-lg-2 col-xs-height col-middle">';
+						html += '<i class="fa fa-fw fa-spinner fa-spin"></i>';
+					html += '</div>';
+				html += '</div>';
+			html += '</blockquote>';
 			$('#piropos .info .body').append(html);
 			getVotoPorPiropo(piropo, $(".piropo#" + piropo.id), {})
 		});
 	}
 
 	function getVotoPorPiropo(piropo, $cont, opts) {
-		console.log(piropo)
 		var html = '';
 		html += '<div class="aFavor">';
 		html += '<i class="fa fa-fw fa-caret-up"></i>';
 		html += '</div>'; 
 		html += '<div class="votos">';
-		html += piropo.votoAFavor;
 		html += '</div>';
 		html += '<div class="enContra">';
 		html += '<i class="fa fa-fw fa-caret-down"></i>';
 		html += '</div>';
 		$cont.find('.puntaje').removeClass('loading');
 		$cont.find('.puntaje').html(html)
+		updateVotoInterfaz(piropo,$cont,opts)
 		$cont.find('.puntaje .aFavor').on("click", function() {
 			addVotoAFavor(piropo, $(this))
 		});
@@ -87,7 +152,7 @@ $(document).ready(function() {
 		});
 		//exito
 		request.done(function(data) {
-			updateVotoInterfaz(data, $cont.parent(), opts);
+			updateVotoInterfaz(data.msg, $cont.parent(), opts);
 		});
 		//fallo
 		request.error(function(data) {});
@@ -105,7 +170,7 @@ $(document).ready(function() {
 		});
 		//exito
 		request.done(function(data) {
-			updateVotoInterfaz(data, $cont.parent(), opts);
+			updateVotoInterfaz(data.msg, $cont.parent(), opts);
 		});
 		//fallo
 		request.error(function(data) {});
@@ -114,7 +179,7 @@ $(document).ready(function() {
 	}
 
 	function updateVotoInterfaz(voto, $cont, opts) {
-		$cont.find('.votos').html(voto.msg.votoAFavor);
+		$cont.find('.votos').html(voto.votoTotal);
 	}
 
 

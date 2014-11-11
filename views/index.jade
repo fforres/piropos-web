@@ -8,10 +8,24 @@ block content
             .info
               .header
                 .new
-                  a(href="#crearPiropo")
+                  a(href="#").activate
                     i.fa.fa-fw.fa-plus-square-o 
-
-
+                  a(href="#").save.pull-right
+                    i.fa.fa-fw.fa-save
+                .aNewOne.form.form-group-lg
+                  .form-group
+                    .col-sm-12
+                      label.sr-only.control-label(for="entername")
+                      input.form-control.entername.validable(name="entername" type="text" placeholder="Tu nombre")
+                      span
+                  .form-group
+                    .col-sm-12
+                      label.sr-only.control-label(for="enterpiropo")
+                      textarea.form-control.enterpiropo.validable(name="enterpiropo" placeholder="Tu piropo" rows="4")
+                      span
+                
+                
+                
               .body.container-xs-height
             .loader
               h1 Cargando ... 
@@ -19,7 +33,10 @@ block content
             .error
               h1 Lo siento! 
               i.fa.fa-fw.fa-meh-o
-            
+            hr
+            footer
+              p  
+                a(href="http://twitter.com/fforres")@fforres - 2014 
           #sidebar.col-xs-6.col-sm-6.col-md-6.col-lg-3.sidebar-offcanvas(role='navigation')
             .list-group
               a.list-group-item.active(href='#') Link
@@ -32,10 +49,5 @@ block content
               a.list-group-item(href='#') Link
               a.list-group-item(href='#') Link
               a.list-group-item(href='#') Link
-          //
-            /.sidebar-offcanvas
-        //
-          /row
-        hr
-        footer
-          p © Company 2014
+          
+          
