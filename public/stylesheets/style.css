@@ -1,4 +1,4 @@
-body{ background-color:#1abc9c;	color:#ECF0F1; }
+body{ background-color:#1abc9c;	color:#ECF0F1;  transition: all 0.65s; }
 
 .navbar{ background-color:#34495E; border:none; }
 .navbar-inverse .navbar-brand{ color:#fff; }
@@ -37,12 +37,19 @@ body{ background-color:#1abc9c;	color:#ECF0F1; }
 #piropos.error #mainbar > div.error { display: block; opacity: 1 }
 
 
-
-#piropos .piropo {margin-top: 2%; margin-bottom: 20px;}
-#piropos .piropo ~ .piropo {margin-top: 10%;}
+ 
+#piropos .piropo {margin-top: 1%; margin-bottom: 1%; transition: box-shadow 0.4s; padding-top:20px; padding-bottom:20px;}
+#piropos .piropo:hover {box-shadow:9px 9px 16px rgba(65, 95, 88, 0.48); transition: box-shadow 0.25s;}
+#piropos .piropo ~ .piropo {margin-top: 5%;}
 
 #piropos .piropo .titulo {text-align: left; }
 #piropos .piropo .titulo .texto{font-size: 3em; }
+
+#piropos .piropo .titulo .links i{font-size: 2.5em; transition:color 0.25s; margin-top: 8px;}
+#piropos .piropo .titulo .links a:hover i,#piropos .piropo .titulo .links a:focus i{color:#106B59;}
+
+
+
 #piropos .piropo .titulo .firma{font-size: 2em; text-align:right;color:#ECF0F1;}
 #piropos .piropo .titulo .firma:hover,#piropos .piropo .titulo .firma:focus{color:#ECF0F1; }
 #piropos .piropo .titulo .firma span{margin-right: 15px; }
@@ -51,7 +58,7 @@ body{ background-color:#1abc9c;	color:#ECF0F1; }
 #piropos .piropo .puntaje i{font-size: 2.5em;}
 #piropos .piropo .puntaje {font-size: 2em;}
 
-#piropos .piropo .puntaje a i,#piropos .piropo .puntaje a i{color:#16a085; transition:color 0.25s;}
+#piropos .piropo .puntaje a i{color:#16a085; transition:color 0.25s;}
 #piropos .piropo .puntaje.novotado a:hover i,#piropos .piropo .puntaje.novotado a:focus i{color:#106B59;}
 #piropos .piropo .puntaje.votado a:hover i,#piropos .piropo .puntaje.votado a:focus i{color:#16a085;}
 #piropos .piropo .puntaje.votado.votadoafavor .aFavor i{color:rgb(255, 203, 0);}

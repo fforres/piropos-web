@@ -4,7 +4,7 @@ var apiURL = "http://fforres.koding.io:3007/api"
   /* GET home page. */
 router.get('/', function(req, res) {
   res.render('index', {
-    title: 'Sr.Piropo! -> Los mejores 10 piropos'
+    title: 'Sr.piropos! -> Los mejores 10 piropos'
   });
 });
 router.get('/piropo', function(req, res) {
@@ -13,13 +13,13 @@ router.get('/piropo', function(req, res) {
 
 router.get('/piropo/:id', function(req, res) {
   res.render('index', {
-    title: 'Sr.Piropo! - Piropo -> ' + req.params.seo
+    title: 'Sr.Piropos! - Piropo -> ' + req.params.id
   });
 });
 
 router.get('/usuario/:nombre', function(req, res) {
   res.render('index', {
-    title: 'Sr.Piropo! - Piropos de @' + req.params.nombre
+    title: 'Sr.Piropos! - Piropos de @' + req.params.nombre
   });
 });
 router.get('/*', function(req, res) {

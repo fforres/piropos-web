@@ -204,18 +204,18 @@ $(document).ready(function() {
 			alcomienzo = true;
 		}
 		var html = '';
-		html += '<blockquote class="piropo row" id="' + piropo.id + '">';
+		html += '<div class="piropo col-xs-12" id="' + piropo.id + '">';
 		html += '<div class="col-xs-12 row-xs-height">'
 		html += '<div class="titulo col-xs-9 col-sm-12 col-lg-10 col-xs-height">';
 		html += '<div class="texto col-xs-12">';
 		html += piropo.texto;
 		html += '</div>';
-		html += '<div class="pull-left col-xs-4 links">';
+		html += '<div class="col-xs-12 col-sm-6 links">';
 		html += '<a href="/piropo/' + piropo.id + '"><i class="fa fa-fw fa-link"></i></a>';
 		html += '<a href="#" data-compartir="true" data-redsocial="facebook" data-url="/piropo/' + piropo.id + '"><i class="fa fa-fw fa-facebook"></i></a>';
 		html += '<a href="https://twitter.com/intent/tweet?text=' + piropo.texto.substring(0, 484860) + '(...)&hashtags=piropo&via=SrPiropos&url=' + window.location.origin + "/piropo/" + piropo.id + '" data-compartir="true" data-redsocial="twitter"><i class="fa fa-fw fa-twitter"></i></a>';
 		html += '</div>';
-		html += '<a href="/usuario/'+piropo.usuario+'"class="pull-right col-xs-8 firma">';
+		html += '<a href="/usuario/'+ encodeURIComponent(piropo.usuario)+'"class="col-xs-12 col-sm-6 firma">';
 		html += "<span>~</span>" + piropo.usuario;
 		html += '</a>';
 		html += '</div>';
@@ -223,7 +223,7 @@ $(document).ready(function() {
 		html += '<i class="fa fa-fw fa-spinner fa-spin"></i>';
 		html += '</div>';
 		html += '</div>';
-		html += '</blockquote>';
+		html += '</div>';
 		if (alcomienzo) {
 			$('#piropos .info .body').prepend(html);
 		} else {
@@ -273,10 +273,10 @@ $(document).ready(function() {
 		updateVotoInterfazLoading($cont)
 		updateVotoInterfaz(piropo, $cont, opts)
 		$cont.find('.puntaje a').on("click", function() {
-			updateVotoInterfazLoading($cont)
 			var elClickeado = $(this);
 			var elClickeadoContainer = $(this).parent();
 			if (elClickeadoContainer.hasClass("novotado")) {
+				updateVotoInterfazLoading($cont)
 				if (elClickeado.hasClass("aFavor")) {
 					addVotoAFavor(piropo, elClickeado)
 				} else if (elClickeado.hasClass("enContra")) {
