@@ -1,13 +1,23 @@
 doctype html
 html
 	head
-		title= title
+		if title
+			title #{title}
+		else
+			title Sr.Piropos
+		meta(http-equiv='content-type', charset='UTF-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		meta(http-equiv='X-UA-Compatible' content='IE=edge')
+		
 		link(rel='stylesheet', href='/stylesheets/offcanvas.css')
 		link(rel='stylesheet', href='/3rdparty/bootstrap/bootstrap.min.css')
 		link(rel='stylesheet', href='/3rdparty/bootstrap/bootstrap.columnsheight.css')
 		link(rel='stylesheet', href='/3rdparty/bootstrap/flatui/flat-ui.min.css')
+		link(rel='stylesheet', href='/3rdparty/bootstrap/flatui/flat-ui.todo.css')
 		link(rel='stylesheet', href='/stylesheets/style.css')
 		link(rel='stylesheet', href='/3rdparty/fontawesome/font-awesome.min.css')
+		link(rel='stylesheet', href='/3rdparty/AmaranJS/css/amaran.min.css')
+		link(rel='stylesheet', href='/3rdparty/AmaranJS/css/animate.min.css')		
 
 	body
 		include navbar
@@ -19,5 +29,9 @@ html
 		script(src='/3rdparty/bootstrap/flatui/flat-ui.min.js')
 		script(src='/javascripts/offcanvas.js')
 		script(src='/javascripts/ie10-viewport-bug-workaround.js')
+		script(src='/javascripts/jquery.cookie.js')
+		script(src='/3rdparty/AmaranJS/js/jquery.amaran.min.js')
+		script(src='/javascripts/shares/facebook.js')		
+		script(src='//platform.twitter.com/widgets.js')		
+		
 		script(src='/javascripts/piropos.js')
-

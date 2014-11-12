@@ -4,7 +4,7 @@ body{ background-color:#1abc9c;	color:#ECF0F1; }
 .navbar-inverse .navbar-brand{ color:#fff; }
 .navbar-inverse .navbar-brand:hover{ color:#1abc9c; }
 
-
+#piropos { padding-top:20px;}
 #piropos .header .new a { color:white;}
 #piropos .header .new a:hover{ color:#E74C3C; }
 #piropos .header .new a i{ font-size:2.3em;}
@@ -14,28 +14,27 @@ body{ background-color:#1abc9c;	color:#ECF0F1; }
 #piropos .header .aNewOne textarea { min-height:80px; margin-top:20px;}
 #piropos .header .aNewOne input {margin-top:20px; }
 #piropos .header .aNewOne .form-group i{ font-size:1.2em; padding-top:7px;}
-
 #piropos .header .aNewOne i.fa.form-control-feedback { top: 24px; right: 20px; }
 
-
+#piropos #mainbar .body {padding-top:50px;}
 #piropos .loader { text-align: center; font-size: 12em; height: 690px }
 #piropos .error { text-align: center; font-size: 12em; height: 690px }
 
-#piropos .loader { display: none; transition: all 2s linear;}
-#piropos .info { display: none; transition: all 2s linear;}
-#piropos .error { display: none; transition: all 2s linear;}
+#piropos #mainbar > div.loader { display: none; transition: all 2s linear;}
+#piropos #mainbar > div.info { display: none; transition: all 2s linear;}
+#piropos #mainbar > div.error { display: none; transition: all 2s linear;}
 
-#piropos.loading .loader { display: block; opacity: 1 }
-#piropos.loading .info { display: none; opacity: 0 }
-#piropos.loading .error { display: none; opacity: 0 }
+#piropos.loading #mainbar > div.loader { display: block; opacity: 1 }
+#piropos.loading #mainbar > div.info { display: none; opacity: 0 }
+#piropos.loading #mainbar > div.error { display: none; opacity: 0 }
 
-#piropos.loaded .loader { display: none; opacity: 0 }
-#piropos.loaded .info { display: block; opacity: 1 }
-#piropos.loaded .error { display: none; opacity: 0 }
+#piropos.loaded #mainbar > div.loader { display: none; opacity: 0 }
+#piropos.loaded #mainbar > div.info { display: block; opacity: 1 }
+#piropos.loaded #mainbar > div.error { display: none; opacity: 0 }
 
-#piropos.error .loader { display: none; opacity: 0  }
-#piropos.error .info { display: none; opacity: 0  }
-#piropos.error .error { display: block; opacity: 1 }
+#piropos.error #mainbar > div.loader { display: none; opacity: 0  }
+#piropos.error #mainbar > div.info { display: none; opacity: 0  }
+#piropos.error #mainbar > div.error { display: block; opacity: 1 }
 
 
 
@@ -44,12 +43,21 @@ body{ background-color:#1abc9c;	color:#ECF0F1; }
 
 #piropos .piropo .titulo {text-align: left; }
 #piropos .piropo .titulo .texto{font-size: 3em; }
-#piropos .piropo .titulo .firma{font-size: 2em; }
+#piropos .piropo .titulo .firma{font-size: 2em; text-align:right;color:#ECF0F1;}
+#piropos .piropo .titulo .firma:hover,#piropos .piropo .titulo .firma:focus{color:#ECF0F1; }
 #piropos .piropo .titulo .firma span{margin-right: 15px; }
 
 #piropos .piropo .puntaje {text-align: center; }
 #piropos .piropo .puntaje i{font-size: 2.5em;}
 #piropos .piropo .puntaje {font-size: 2em;}
+
+#piropos .piropo .puntaje a i,#piropos .piropo .puntaje a i{color:#16a085; transition:color 0.25s;}
+#piropos .piropo .puntaje.novotado a:hover i,#piropos .piropo .puntaje.novotado a:focus i{color:#106B59;}
+#piropos .piropo .puntaje.votado a:hover i,#piropos .piropo .puntaje.votado a:focus i{color:#16a085;}
+#piropos .piropo .puntaje.votado.votadoafavor .aFavor i{color:rgb(255, 203, 0);}
+#piropos .piropo .puntaje.votado.votadoencontra .enContra i{color:rgb(255, 203, 0);}
+ 
+
 
 #piropos .piropo .puntaje.loading .loader {display: block; opacity: 1}
 #piropos .piropo .puntaje.loading .info {display: none; opacity: 0}
