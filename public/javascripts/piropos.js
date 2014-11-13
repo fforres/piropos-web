@@ -1,6 +1,5 @@
 var $ = jQuery;
 $(document).ready(function() {
-	var API = "http://ufkkf5b6fa87.fforres.koding.io:3007/api"
 
 	/* INTERFAZ Y VALIDACION DE CREACION PIROPO*/
 	$('.info .header .new a.activate').on("click", function(e) {
