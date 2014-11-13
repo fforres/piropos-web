@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var apiURL = "http://fforres.koding.io:3007/api"
+var siteUrl = "http://fforres.koding.io:3006"
 	/* GET home page. */
 router.get('/', function(req, res) {
 	res.render('index', {
@@ -26,11 +27,9 @@ router.get('/piropo/:id', function(req, res) {
 					"title":"¡Que buen piropo!",
 					"site_name":"Sr. Piropos",
 					"description":thebody.texto,
-					"image":"https://c2.staticflickr.com/4/3386/3520657923_138009c63f.jpg",
+					"image":siteUrl+"/images/parejasilla.jpg",
 					"app_id":"861140763904895",
-					"type":"article",
-					"author":thebody.usuario,
-					"publisher":"Sr.Piropos"
+					"type":"article"
 				}
 			});
 		} else {
