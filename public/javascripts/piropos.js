@@ -1,6 +1,5 @@
 var $ = jQuery;
 $(document).ready(function() {
-
 	/* INTERFAZ Y VALIDACION DE CREACION PIROPO*/
 	$('.info .header .new a.activate').on("click", function(e) {
 		e.preventDefault();
