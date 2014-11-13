@@ -5,6 +5,16 @@ html
 			title #{title}
 		else
 			title Sr.Piropos
+		if locals.FBmeta
+			meta(property="og:title" content="¡Que excelente Piropo!")
+			meta(property="og:site_name" content="#{locals.FBmeta.site_name}")
+			meta(property="og:description" content="#{locals.FBmeta.description}")
+			meta(property="og:image" content="#{locals.FBmeta.image}")
+			meta(property="og:app_id" content="#{locals.FBmeta.app_id}")
+			meta(property="og:type" content="#{locals.FBmeta.type}")
+			meta(property="og:author" content="#{locals.FBmeta.author}")
+			meta(property="og:publisher" content="#{locals.FBmeta.publisher}")
+
 		meta(http-equiv='content-type', charset='UTF-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1')
 		meta(http-equiv='X-UA-Compatible' content='IE=edge')
