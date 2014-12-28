@@ -1,10 +1,14 @@
 @media screen and (max-width:767px) {
 	#piropos #mainbar .body {padding-top:20px;}
+	#piropos .error { text-align: center; } 
+    #piropos .error .icon { font-size: 4em; padding-bottom:20px; }
+    #piropos .error .text p{ font-size: 1.5em; }
 	#piropos .piropo { padding-top: 20px; padding-bottom:20px; }
 	#piropos .piropo > div { padding-left: 0; padding-right: 0; }
 	#piropos .piropo .titulo { padding-left: 0; padding-right: 0; }
 	#piropos .piropo .titulo .texto { padding-left: 0; padding-right: 0; font-size: 1.5em; text-align: center; }
-	#piropos .piropo .titulo .links { padding-top: 20px; font-size: 0.7em }
-	#piropos .piropo .titulo .firma { padding-top: 12px; font-size: 1.4em; text-align: left; }
+	#piropos .piropo .titulo .firma { padding-top: 12px; font-size: 1.4em; text-align: right; }
+	#piropos .piropo .links { padding-top: 20px; }
+	#piropos .piropo .links i{ font-size: 2.0em }
 	#piropos .piropo .puntaje { font-size: 1.3em; padding-right:0px; padding-left:0px; }
 }

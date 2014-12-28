@@ -1,47 +1,58 @@
 doctype html
 html
-	head
-		if title
-			title #{title}
-		else
-			title Sr.Piropos
-		if locals.FBmeta
-			meta(property="og:title" content="¡Que excelente Piropo!")
-			meta(property="og:site_name" content="#{locals.FBmeta.site_name}")
-			meta(property="og:description" content="#{locals.FBmeta.description}")
-			meta(property="og:image" content="#{locals.FBmeta.image}")
-			meta(property="og:app_id" content="#{locals.FBmeta.app_id}")
-			meta(property="og:type" content="#{locals.FBmeta.type}")
+  head
+    if title
+      title #{title}
+    else
+      title Sr.Piropos
+    if locals.FBmeta
+      meta(property="og:title" content="¡Que excelente Piropo!")
+      meta(property="og:site_name" content="#{locals.FBmeta.site_name}")
+      meta(property="og:description" content="#{locals.FBmeta.description}")
+      meta(property="og:image" content="#{locals.FBmeta.image}")
+      meta(property="og:app_id" content="#{locals.FBmeta.app_id}")
+      meta(property="og:type" content="#{locals.FBmeta.type}")
 
-		meta(http-equiv='content-type', charset='UTF-8')
-		meta(name='viewport', content='width=device-width, initial-scale=1')
-		meta(http-equiv='X-UA-Compatible' content='IE=edge')
-		
-		link(rel='stylesheet', href='/stylesheets/offcanvas.css')
-		link(rel='stylesheet', href='/3rdparty/bootstrap/bootstrap.min.css')
-		link(rel='stylesheet', href='/3rdparty/bootstrap/bootstrap.columnsheight.css')
-		link(rel='stylesheet', href='/3rdparty/bootstrap/flatui/flat-ui.min.css')
-		link(rel='stylesheet', href='/3rdparty/bootstrap/flatui/flat-ui.todo.css')
-		link(rel='stylesheet', href='/stylesheets/style.css')
-		link(rel='stylesheet', href='/stylesheets/style_767.css')
-		link(rel='stylesheet', href='/3rdparty/fontawesome/font-awesome.min.css')
-		link(rel='stylesheet', href='/3rdparty/AmaranJS/css/amaran.min.css')
-		link(rel='stylesheet', href='/3rdparty/AmaranJS/css/animate.min.css')		
+    meta(http-equiv='content-type', charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Montserrat')   
+    link(rel='stylesheet', href='/stylesheets/offcanvas.css')
+    link(rel='stylesheet', href='/3rdparty/bootstrap/bootstrap.min.css')
+    link(rel='stylesheet', href='/3rdparty/bootstrap/bootstrap.columnsheight.css')
+    link(rel='stylesheet', href='/3rdparty/bootstrap/flatui/flat-ui.min.css')
+    link(rel='stylesheet', href='/3rdparty/bootstrap/flatui/flat-ui.todo.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/style_767.css')
+    link(rel='stylesheet', href='/stylesheets/style_991.css')
+    link(rel='stylesheet', href='/3rdparty/navgoco/navgoco.css')   
+    link(rel='stylesheet', href='/3rdparty/fontawesome/font-awesome.min.css')
+    link(rel='stylesheet', href='/3rdparty/AmaranJS/css/animate.min.css')   
+    link(rel='stylesheet', href='/3rdparty/AmaranJS/css/amaran.min.css')
+    
+  body(ng-app="main" ng-controller="sideBarController" class="{{isExpanded}}")
+    include sidebar
+    include navbar
+    block content
+  
+  footer
+    script(src='/javascripts/jquery-2.1.1.min.js')
+    script(src='/3rdparty/bootstrap/bootstrap.min.js')
+    script(src='/3rdparty/bootstrap/flatui/flat-ui.min.js')
+    script(src='/javascripts/offcanvas.js')
+    script(src='/javascripts/ie10-viewport-bug-workaround.js')
+    script(src='/3rdparty/AmaranJS/js/jquery.amaran.min.js')
+    script(src='/javascripts/shares/facebook.js')   
+    script(src='//platform.twitter.com/widgets.js')   
+    script(src='/javascripts/analytics.js')
+    script(src='/javascripts/config.js')
+    script(src='/3rdparty/moment/moment.min.js')
+    script(src='/3rdparty/navgoco/jquery.cookie.js')
+    script(src='/3rdparty/navgoco/jquery.navgoco.js')
+    script(src='http://code.angularjs.org/1.3.6/angular.min.js')
+    script(src='http://code.angularjs.org/1.3.6/angular-cookies.min.js')
+    script(src='http://code.angularjs.org/1.3.6/angular-route.min.js')
+    script(src='http://code.angularjs.org/1.3.6/angular-animate.min.js')
+    script(src='/javascripts/piroposController.js') 
 
-	body
-		include navbar
-		block content
-	
-	footer
-		script(src='/javascripts/jquery-2.1.1.min.js')
-		script(src='/3rdparty/bootstrap/bootstrap.min.js')
-		script(src='/3rdparty/bootstrap/flatui/flat-ui.min.js')
-		script(src='/javascripts/offcanvas.js')
-		script(src='/javascripts/ie10-viewport-bug-workaround.js')
-		script(src='/javascripts/jquery.cookie.js')
-		script(src='/3rdparty/AmaranJS/js/jquery.amaran.min.js')
-		script(src='/javascripts/shares/facebook.js')		
-		script(src='//platform.twitter.com/widgets.js')		
-		script(src='/javascripts/analytics.js')
-		script(src='/javascripts/config.js')
-		script(src='/javascripts/piropos.js')		

@@ -1,0 +1,11 @@
+@media screen and (min-width:768px) and (max-width:991px) {
+	#piropos #mainbar .body {padding-top:20px;}
+	#piropos .piropo { padding-top: 20px; padding-bottom:20px; }
+	#piropos .piropo > div { padding-left: 0; padding-right: 0; }
+	#piropos .piropo .titulo { padding-left: 0; padding-right: 0; }
+	#piropos .piropo .titulo .texto { padding-left: 0; padding-right: 0; font-size: 2.2em; text-align: center; }
+	#piropos .piropo .titulo .firma { padding-top: 12px; font-size: 2.0em; text-align: right; }
+	#piropos .piropo .links { padding-top: 20px;}
+	#piropos .piropo .links i{font-size: 2.3em }
+	#piropos .piropo .puntaje { font-size: 1.3em; padding-right:0px; padding-left:0px; }
+}

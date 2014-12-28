@@ -1,28 +1,56 @@
-.todo
-  ul
-    li.todo-done
-      .todo-content
-        h4.todo-name
-          | Meet
-          strong  Adrian
-          | at
-          strong 6pm
-        | Times Square
-    li
-      .todo-content
-        h4.todo-name
-          | Chat with
-          strong V.Kudinov
-        | Skype conference an 9 am
-    li
-      .todo-content
-        h4.todo-name
-          | Watch
-          strong Iron Man
-        | 1998 Broadway
-    li
-      .todo-content
-        h4.todo-name
-          | Fix bug on a
-          strong Website
-        | As soon as possible
+nav#sidebar(clickear-en-cualquier-otro-lado-para-cerrar-el-sidebar)
+    ul.list-unstyled.main-menu
+        // Include your navigation here
+        li.text-right
+          a#nav-close(href='#' ng-click="cerrarSidebar(event)") X
+        li
+          a(href='#/') Top 10 
+            span.icon
+        li
+          a(href='#/newest') Lo más nuevo 
+            span.icon
+        li
+          a(href='#/bestOfTheWeek') Lo mejor de la semana 
+            span.icon
+        li
+          a(href='#/bestOfTheMonth') Lo mejor del Mes 
+            span.icon
+        li
+          a(href='#/bestOfLastDay') Lo mejor del día 
+            span.icon
+        //li
+          a(href='#') Dropdown
+            i.fa.fa-fw.fa-caret-down
+            
+          ul.list-unstyled
+            li.sub-nav
+              a(href='#')
+                | Sub Menu One 
+                span.icon
+                       
+            li.sub-nav
+              a(href='#')
+                | Sub Menu Two 
+                span.icon
+                       
+            li.sub-nav
+              a(href='#')
+                | Sub Menu Three 
+                span.icon
+                       
+            li.sub-nav
+              a(href='#')
+                | Sub Menu Four 
+                span.icon
+                       
+            li.sub-nav
+              a(href='#')
+                | Sub Menu Five 
+                span.icon
+        li
+            a Busca tu piropo
+            div.input-group
+                input.form-control#BuscaTuPiropo(type="text" placeholder="Busca tu piropo" ng-model="searchTerm" ng-keyup="$event.keyCode == 13 && realizarBusqueda($event)") 
+                span.input-group-btn
+                    a.btn.btn-default(type="button" ng-click="realizarBusqueda(event)")
+                        i.fa.fa-fw(class="{{iconoBotonBusqueda}} {{girar}}")

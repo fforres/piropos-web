@@ -1,0 +1,31 @@
+div.piropo.col-xs-12(ng-repeat="piropo in piropos" id="{{piropo.id}}" ng-init='piropoId=piropo.id' ng-mouseenter='piropoEvents.mouseenter($event)' ng-mouseleave='piropoEvents.mouseleave($event)')
+    div.col-xs-12.row-xs-height
+        div.titulo.col-xs-12.col-sm-12.col-lg-10.col-xs-height
+            div.texto.col-xs-12 {{piropo.texto}}
+            a.col-xs-12.col-sm-12.firma(href='#/usuario/{{piropo.usuario}}')
+              span ~ {{piropo.usuario}}
+        div.puntaje.col-xs-3.col-sm-2.col-lg-2.col-xs-height.col-middle(votacion-piropo ng-class="estavotado" ng-controller="votosPiropoController")
+            a.votar.aFavor(ng-click="votar.afavor($event)")
+                i.fa.fa-fw.fa-caret-up
+            div.votos {{piropo.votoAFavor}}
+            a.votar.enContra(ng-click="votar.encontra($event)")
+                i.fa.fa-fw.fa-caret-down
+           
+        div.col-xs-12.col-sm-6.links
+          a(href='#/piropo/{{piropo.id}}')
+            i.fa.fa-fw.fa-link 
+          a(href='#', data-compartir='true', data-redsocial='facebook', data-url='/piropo/{{piropo.id}}')
+            i.fa.fa-fw.fa-facebook|       
+          a(href='https://twitter.com/intent/tweet?text={{piropo.texto}}&hashtags=piropo&via=SrPiropos&url=http://fforres.koding.io:3005/piropo/546237269b4a659608da8291', data-compartir='true', data-redsocial='twitter')
+            i.fa.fa-fw.fa-twitter
+div.error.col-xs-12(ng-show="!piropos.length && piropos.length != 0")
+    i.fa.fa-fw.fa-spinner.fa-spin.icon
+    div.text
+        p.animated.shake
+            b Buscando...
+div.error.col-xs-12(ng-show="piropos.length == 0")
+    i.fa.fa-fw.fa-frown-o.icon.animated.pulse
+    div.text
+        p.animated.shake
+            b Houston! Tenemos un problema.
+        p No hemos encontrado piropos para tu búsqueda.    

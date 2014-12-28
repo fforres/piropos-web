@@ -1,24 +1,30 @@
+
 body{ background-color:#1abc9c;	color:#ECF0F1;  transition: all 0.65s; }
+body>.container {   padding-top:50px; }
 
 .navbar{ background-color:#34495E; border:none; }
 .navbar-inverse .navbar-brand{ color:#fff; }
 .navbar-inverse .navbar-brand:hover{ color:#1abc9c; }
+.ocultado{ display:none!important;}
+.noocultado{ max-height:auto; }
+  
+#newpiropo { padding-top:20px;}
+#newpiropo .header .new a { color:white;}
+#newpiropo .header .new a:hover{ color:#E74C3C; cursor:pointer;}
+#newpiropo .header .new a i{ font-size:2.3em;}
+#newpiropo .header .new a.save{}
+#newpiropo .header .new a.save.shown{}
 
-#piropos { padding-top:20px;}
-#piropos .header .new a { color:white;}
-#piropos .header .new a:hover{ color:#E74C3C; }
-#piropos .header .new a i{ font-size:2.3em;}
-#piropos .header .new a.save{display:none;}
-
-#piropos .header .aNewOne {display:none;}
-#piropos .header .aNewOne textarea { min-height:80px; margin-top:20px;}
-#piropos .header .aNewOne input {margin-top:20px; }
-#piropos .header .aNewOne .form-group i{ font-size:1.2em; padding-top:7px;}
-#piropos .header .aNewOne i.fa.form-control-feedback { top: 24px; right: 20px; }
+/*#newpiropo .header .aNewOne {display:none;}*/
+#newpiropo .header .aNewOne textarea {min-height:80px; margin-top:20px;}
+#newpiropo .header .aNewOne input {margin-top:20px; }
+#newpiropo .header .aNewOne .form-group i{ font-size:1.2em; padding-top:7px;}
+#newpiropo .header .aNewOne i.fa.form-control-feedback { top: 24px; right: 20px; }
 
 #piropos #mainbar .body {padding-top:50px;}
-#piropos .loader { text-align: center; font-size: 12em; height: 690px }
-#piropos .error { text-align: center; font-size: 12em; height: 690px }
+#piropos .error { text-align: center; } 
+#piropos .error .icon { font-size: 7em; padding-bottom:20px; }
+#piropos .error .text p{ font-size: 2em; }
 
 #piropos #mainbar > div.loader { display: none; transition: all 2s linear;}
 #piropos #mainbar > div.info { display: none; transition: all 2s linear;}
@@ -37,26 +43,38 @@ body{ background-color:#1abc9c;	color:#ECF0F1;  transition: all 0.65s; }
 #piropos.error #mainbar > div.error { display: block; opacity: 1 }
 
 
- 
-#piropos .piropo {margin-top: 1%; margin-bottom: 1%; transition: box-shadow 0.4s; padding-top:20px; padding-bottom:20px;}
-#piropos .piropo:hover {box-shadow:9px 9px 16px rgba(65, 95, 88, 0.48); transition: box-shadow 0.25s;}
+#piropos .piropo:nth-child(1){margin-top:30px;} 
+#piropos .piropo { margin-top: 1%; margin-bottom: 1%; transition: box-shadow 0.4s; padding-top:20px; padding-bottom:20px;}
+#piropos .piropo {box-shadow:6px 8px 16px rgba(65, 95, 88, 0.48); transition: box-shadow 0.25s;}
+#piropos .piropo.hovered {box-shadow:16px 16px 16px rgba(65, 95, 88, 0.49); transition: box-shadow 0.25s;}
 #piropos .piropo ~ .piropo {margin-top: 5%;}
 
-#piropos .piropo .titulo {text-align: left; }
-#piropos .piropo .titulo .texto{font-size: 3em; }
-
-#piropos .piropo .titulo .links i{font-size: 2.5em; transition:color 0.25s; margin-top: 8px;}
-#piropos .piropo .titulo .links a:hover i,#piropos .piropo .titulo .links a:focus i{color:#106B59;}
-
+#piropos .piropo .titulo {text-align: center; }
+#piropos .piropo .titulo .texto{font-family: 'Montserrat', serif; font-weight:400; font-size: 3em; }
+#piropos .piropo .titulo .texto::selection {  background: #FF4949; }
+#piropos .piropo .titulo .texto::-moz-selection {   background: #FF4949; }
 
 
-#piropos .piropo .titulo .firma{font-size: 2em; text-align:right;color:#ECF0F1;}
+#piropos .piropo .titulo .firma{font-size: 2.5em; text-align:right;color:#ECF0F1;}
+/*
+#piropos .piropo .titulo .firma span::selection {  background: #a8d1ff; }
+#piropos .piropo .titulo .firma span::-moz-selection {   background: #a8d1ff; }
+*/
 #piropos .piropo .titulo .firma:hover,#piropos .piropo .titulo .firma:focus{color:#ECF0F1; }
 #piropos .piropo .titulo .firma span{margin-right: 15px; }
 
-#piropos .piropo .puntaje {text-align: center; }
+
+#piropos .piropo .links i{font-size: 2.5em; transition:color 0.25s; margin-top: 8px;}
+#piropos .piropo .links a:hover i,#piropos .piropo .titulo .links a:focus i{color:#106B59;}
+
+
+#piropos .piropo .puntaje {text-align: center; font-size: 2em; }
+/*
+#piropos .piropo .puntaje::selection {  background: #fff2a8; }
+#piropos .piropo .puntaje::-moz-selection {   background: #fff2a8; }
+*/
 #piropos .piropo .puntaje i{font-size: 2.5em;}
-#piropos .piropo .puntaje {font-size: 2em;}
+
 
 #piropos .piropo .puntaje a i{color:#16a085; transition:color 0.25s;}
 #piropos .piropo .puntaje.novotado a:hover i,#piropos .piropo .puntaje.novotado a:focus i{color:#106B59;}
