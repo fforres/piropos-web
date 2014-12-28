@@ -38,9 +38,11 @@ angular.module("main", ["ngCookies","ngRoute","ngAnimate"])
     .controller("searchController", ['$scope', '$cookies', '$http','$routeParams', function($scope, $cookies, $http, $routeParams) {
         var searchURL = API + '/piropos/searchIgnoreCase?searchParameter='+$routeParams.searchText
         var piroposPromise = $http.get(searchURL)
+        console.log($scope);
 		piroposPromise.success(function(data, status, headers, config) {
 		    $scope.$parent.isExpanded = "";
-		    $scope.iconoBotonBusqueda = "fa-search"
+		    $scope.$parent.iconoBotonBusqueda = "fa-search"
+		    $scope.$parent.girar = ""
 			$scope.piropos = data.piropos
 		})
 		piroposPromise.error(function(data, status, headers, config) {})
@@ -175,7 +177,6 @@ angular.module("main", ["ngCookies","ngRoute","ngAnimate"])
         var url = API + '/piropos?filter='+JSON.stringify(ob)
 		var piroposPromise = $http.get(url)
 		piroposPromise.success(function(data, status, headers, config) {
-		    console.log(data)
 			$scope.piropos = data
 		})
 		piroposPromise.error(function(data, status, headers, config) {})
@@ -208,7 +209,10 @@ angular.module("main", ["ngCookies","ngRoute","ngAnimate"])
 			$scope.piropo = data
 			$scope.piropoId = data.id
 		})
-		piroposPromise.error(function(data, status, headers, config) {})
+		piroposPromise.error(function(data, status, headers, config) {
+		    $scope.piropo = false;
+		    $scope.piropoId = false;
+		})
 		hoverOverPiropos($scope)
 	}])
 	.controller("votosPiropoController", ['$scope', '$cookies', '$http', function($scope, $cookies, $http) {
@@ -229,6 +233,7 @@ angular.module("main", ["ngCookies","ngRoute","ngAnimate"])
 	
 	
 	.controller("crearPiroposController", ['$scope', '$http','$attrs', function($scope, $http, $attrs) {
+	    $scope.nuevoPiropo = {};
         $scope.estaMostrado     = false;
         $scope.estaMostradoBtn  = false;
 		$scope.mostrarCreacion = function(event){
@@ -241,38 +246,34 @@ angular.module("main", ["ngCookies","ngRoute","ngAnimate"])
             };
             $http.post(API + "/piropos/",ob)
                 .success(function(data, status, headers, config) {
-                    console.log(data)
-                    $.amaran({
-                        content:{
-                            title:'Tu piropopo fue creado sin problemas!',
-                            message:'Míralo en el siguiente link',
-                            info:'<a href="#/piropo/'+data.id+'"><i class="fa fa-fw fa-anchor"></i>'++'</a>',
-                            icon:'fa fa-check'
-                        },
-                        theme:'awesome ok'
-                    });
+                    
                     $.amaran({
     					content: {
     						bgcolor: '#9B59B6',
     						color: '#ecf0f1',
-    						message: '<h4>Piropo creado</h4> <a href="#/piropo/'+data.id+'"><i class="fa fa-fw fa-anchor"></i>Míralo en este link</a>'
+    						message: '<h4>Piropo creado!</h4> <a href="#/piropo/'+data.id+'" class="animated pulse"><i class="fa fa-fw fa-hand-o-right"></i>Míralo en este link</a>'
     					},
     					theme: 'colorful',
     					position: 'bottom left',
     					closeButton: true,
+    					delay: 5000,
     					sticky: false
     				});
+                    $scope.inputPiropoForm.entername = "";
+                    $scope.estaMostrado     = false;
+                    $scope.nuevoPiropo      = {};
                 })
                 .error(function(data, status, headers, config) {
                     $.amaran({
     					content: {
     						bgcolor: '#9B59B6',
     						color: '#ecf0f1',
-    						message: '<h4>Piropo creado</h4> <a href="#/piropo/'+data.id+'"><i class="fa fa-f fa-anchor"></i>Míralo en este link</a>'
+    						message: '<h4>Que vergüenza!</h4> <p>Tuvimos un problema creando tu piropo.</p><p> Intenta denuevo, o esperanos unos minutos</p >'
     					},
     					theme: 'colorful',
     					position: 'bottom left',
     					closeButton: true,
+    					delay: 6000,
     					sticky: false
     				});
                 });
@@ -295,7 +296,6 @@ angular.module("main", ["ngCookies","ngRoute","ngAnimate"])
         restrict: 'A',
         link: function($scope, elem, attr, ctrl) {
             elem.find("a").bind('click',function(event){
-                console.log(event);
             });
             $document.bind('click', function(event){
                 var isClickedElementChildOfPopup = elem
@@ -352,6 +352,19 @@ angular.module("main", ["ngCookies","ngRoute","ngAnimate"])
                 }
             );
         };
+	})
+	.directive("share",function(){
+	    return function($scope,$element,$attrs){
+	        $element.find("a[data-redsocial='facebook']").bind('click',function(event){
+	            event.preventDefault();
+	            FB.ui({
+					method: 'share',
+					href: window.location.origin + $(this).data("url")
+				}, function(response) {});
+	            
+            });
+	        
+	    }
 	})
 	.animation(".hidear",function(){
         return{

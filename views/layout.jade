@@ -5,13 +5,14 @@ html
       title #{title}
     else
       title Sr.Piropos
+    
     if locals.FBmeta
-      meta(property="og:title" content="¡Que excelente Piropo!")
-      meta(property="og:site_name" content="#{locals.FBmeta.site_name}")
-      meta(property="og:description" content="#{locals.FBmeta.description}")
-      meta(property="og:image" content="#{locals.FBmeta.image}")
-      meta(property="og:app_id" content="#{locals.FBmeta.app_id}")
-      meta(property="og:type" content="#{locals.FBmeta.type}")
+    meta(property="og:title" content="¡Que excelente Piropo!")
+    meta(property="og:site_name" content="Piropos.cl")
+    meta(property="og:description" content="--------------")
+    meta(property="og:image" content="http://fforres.koding.io:3006/images/parejasilla.jpg")
+    meta(property="og:app_id" content="861140763904895")
+    meta(property="og:type" content="article")
 
     meta(http-equiv='content-type', charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1')
@@ -30,6 +31,7 @@ html
     link(rel='stylesheet', href='/3rdparty/fontawesome/font-awesome.min.css')
     link(rel='stylesheet', href='/3rdparty/AmaranJS/css/animate.min.css')   
     link(rel='stylesheet', href='/3rdparty/AmaranJS/css/amaran.min.css')
+    link(rel='stylesheet', href='/stylesheets/input_zoom_ios_fix.css')
     
   body(ng-app="main" ng-controller="sideBarController" class="{{isExpanded}}")
     include sidebar

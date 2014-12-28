@@ -11,7 +11,7 @@ div.piropo.col-xs-12(ng-repeat="piropo in piropos" id="{{piropo.id}}" ng-init='p
             a.votar.enContra(ng-click="votar.encontra($event)")
                 i.fa.fa-fw.fa-caret-down
            
-        div.col-xs-12.col-sm-6.links
+        div.col-xs-12.col-sm-6.links(share)
           a(href='#/piropo/{{piropo.id}}')
             i.fa.fa-fw.fa-link 
           a(href='#', data-compartir='true', data-redsocial='facebook', data-url='/piropo/{{piropo.id}}')
@@ -21,7 +21,7 @@ div.piropo.col-xs-12(ng-repeat="piropo in piropos" id="{{piropo.id}}" ng-init='p
 div.error.col-xs-12(ng-show="!piropos.length && piropos.length != 0")
     i.fa.fa-fw.fa-spinner.fa-spin.icon
     div.text
-        p.animated.shake
+        p
             b Buscando...
 div.error.col-xs-12(ng-show="piropos.length == 0")
     i.fa.fa-fw.fa-frown-o.icon.animated.pulse

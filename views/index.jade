@@ -14,13 +14,13 @@ block content
                                 div.form-group
                                   div.col-sm-12
                                     label.sr-only.control-label(for='entername')
-                                    input.form-control.entername.validable(name='entername', type='text', placeholder='Tu nombre' ng-model="entername" ng-required="true" ng-minlength="3")
-                                    span.help-block.error(ng-show="inputPiropoForm.entername.minlength") El nombre ingresado es demasiado corto :(
+                                    input.form-control.entername.validable(name='entername', type='text', placeholder='Tu nombre' ng-model="nuevoPiropo.entername" ng-required="true" ng-minlength="3")
+                                    span.help-block.error(ng-show="inputPiropoForm.nuevoPiropo.entername.minlength") El nombre ingresado es demasiado corto :(
                                 div.form-group
                                   div.col-sm-12
                                     label.sr-only.control-label(for='enterpiropo')
-                                    textarea.form-control.enterpiropo.validable(name='enterpiropo', placeholder='Tu piropo', rows='4' ng-model="enterpiropo" ng-required="true"  ng-minlength="3")
-                                    span.help-block.error(ng-show="inputPiropoForm.enterpiropo.minlength") No has ingresado un piropo :(
+                                    textarea.form-control.enterpiropo.validable(name='enterpiropo', placeholder='Tu piropo', rows='4' ng-model="nuevoPiropo.enterpiropo" ng-required="true"  ng-minlength="3")
+                                    span.help-block.error(ng-show="inputPiropoForm.nuevoPiropo.enterpiropo.minlength") No has ingresado un piropo :(
                 #piropos(ng-view)
                     
                 hr
