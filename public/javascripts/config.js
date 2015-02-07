@@ -1,4 +1,4 @@
-var API = "http://piroposapi.fforres.koding.io/api"
+var API = "http://api.srpiropos.com/api";
 $.ajaxSetup({
 	crossDomain :true
 }) 

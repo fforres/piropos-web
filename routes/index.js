@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var apiURL = "http://fforres.koding.io:3007/api"
-var siteUrl = "http://fforres.koding.io:3006"
+var apiURL = "http://api.srpiropos.com/api";
+var siteUrl = "http://srpiropos.com";
 	/* GET home page. */
 router.get('/views/*', function(req, res) {
 	console.log(req.params["0"])
